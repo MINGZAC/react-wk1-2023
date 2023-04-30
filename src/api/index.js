@@ -10,15 +10,15 @@ import {
 import Images from "../json/products.json";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBe5vVm6vAxtbWBIjmwFKTfdJAy5ZOmmvQ",
-    authDomain: "react-wk1-a9b1d.firebaseapp.com",
-    projectId: "react-wk1-a9b1d",
-    storageBucket: "react-wk1-a9b1d.appspot.com",
-    messagingSenderId: "1010831761356",
-    appId: "1:1010831761356:web:1e92c95c689c52116e4769",
-    measurementId: "G-CYWGYBNHFT"
+    apiKey: import.meta.env.VITE_FIREBASE_APIKEY,
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_FIREBASE_PROJECTID,
+    storageBucket: import.meta.env.VITE_FIREBASE_STORGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_FIREBASE_APPID,
+    measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENTID,
   };
-
+  
 const app_length = getApps().length > 0;
 
 // Initialize Firebase
