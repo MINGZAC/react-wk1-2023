@@ -7,17 +7,17 @@ import {
   getDocs,
   deleteDoc,
 } from "firebase/firestore";
-import Images from "../json/images.json";
+import Images from "../json/products.json";
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_APIKEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECTID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APPID,
-  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENTID,
-};
+    apiKey: "AIzaSyBe5vVm6vAxtbWBIjmwFKTfdJAy5ZOmmvQ",
+    authDomain: "react-wk1-a9b1d.firebaseapp.com",
+    projectId: "react-wk1-a9b1d",
+    storageBucket: "react-wk1-a9b1d.appspot.com",
+    messagingSenderId: "1010831761356",
+    appId: "1:1010831761356:web:1e92c95c689c52116e4769",
+    measurementId: "G-CYWGYBNHFT"
+  };
 
 const app_length = getApps().length > 0;
 
@@ -28,13 +28,13 @@ const app = app_length ? getApp() : initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 // REFERENCE COLLECTION
-const ImagesCollection = collection(db, "images"); 
+const ImagesCollection = collection(db, "products"); 
 
 export const feedImages = async () => {
   // DELETE ALL EXISTING DOCS
   const querySnapshot = await getDocs(ImagesCollection);
   querySnapshot.forEach(async (image) => {
-    await deleteDoc(doc(db, "images", image.id));
+    await deleteDoc(doc(db, "products", image.id));
   });
   // ADD NEW DOCS
   Images.forEach(async (image) => {
